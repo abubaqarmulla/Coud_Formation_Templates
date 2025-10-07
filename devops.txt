@@ -1,0 +1,263 @@
+1. Automated CI/CD Pipeline for Cloud-based Web Application
+
+Project Title
+
+> Cloud-Native Application Deployment Automation using AWS and Jenkins
+
+
+
+Client Requirement (SRS Summary)
+
+Our organization requires an automated CI/CD pipeline for deploying a Java-based web application to AWS.
+The solution should enable continuous integration, automated testing, and seamless deployment to production without manual intervention.
+
+Functional Requirements
+
+1. Source code should be fetched automatically from GitHub on every commit.
+
+
+2. The build process should use Maven to compile and package the code.
+
+
+3. Jenkins must trigger the pipeline for build → test → deploy stages.
+
+
+4. The application should be Dockerized and pushed to AWS ECR.
+
+
+5. Deployment should occur on AWS ECS or EKS cluster.
+
+
+6. Terraform must provision infrastructure (VPC, EC2, IAM roles, ECS/EKS).
+
+
+7. Logs and metrics should be monitored via CloudWatch.
+
+
+8. Alerts should be sent using SNS for failed deployments.
+
+
+9. The entire deployment must follow Agile SDLC, tracked in Jira.
+
+
+
+Non-Functional Requirements
+
+Deployment frequency: ≤ 15 minutes per release
+
+Zero-downtime deployment (rolling or blue-green)
+
+Secure IAM role-based access
+
+Version-controlled infrastructure (Terraform)
+
+
+
+---
+2. Infrastructure as Code (IaC) and Configuration Management Automation
+
+Project Title
+
+> Automated Infrastructure Provisioning and Configuration using Terraform and Ansible
+
+
+
+Client Requirement (SRS Summary)
+
+The client needs a fully automated solution to provision and configure cloud infrastructure on AWS using Terraform and Ansible.
+The goal is to reduce manual setup, improve scalability, and ensure consistent environments for development, staging, and production.
+
+Functional Requirements
+
+1. Use Terraform to create:
+
+Custom VPC with subnets
+
+EC2 instances with proper IAM roles
+
+S3 buckets for data storage
+
+Security Groups and Key Pairs
+
+
+
+2. Use Ansible to configure EC2 instances (install Docker, Nginx, app dependencies).
+
+
+3. Integrate Terraform + Ansible with Jenkins pipeline.
+
+
+4. Implement version control through GitHub.
+
+
+5. Configure CloudWatch to monitor system metrics.
+
+
+6. Logs must be shipped to Splunk for centralized analysis.
+
+
+
+Non-Functional Requirements
+
+Reproducible environments via IaC
+
+Modular and reusable Terraform scripts
+
+Role-based access for security compliance
+
+
+
+---
+
+3. Containerized Microservices Deployment with Monitoring
+
+Project Title
+
+> Scalable Microservices Deployment using Docker, Kubernetes (EKS), and CloudWatch
+
+
+
+Client Requirement (SRS Summary)
+
+The client’s application consists of multiple microservices that must be containerized, orchestrated, and deployed on AWS EKS.
+They also require centralized monitoring and auto-scaling capabilities.
+
+Functional Requirements
+
+1. Containerize microservices using Docker.
+
+
+2. Push images to AWS ECR.
+
+
+3. Use Terraform to provision EKS cluster, node groups, IAM, and networking.
+
+
+4. Automate deployment using Jenkins pipelines.
+
+
+5. Implement horizontal pod autoscaling based on CPU usage.
+
+
+6. Configure CloudWatch dashboards for cluster and pod metrics.
+
+
+7. Integrate with Splunk for log analytics.
+
+
+8. Store application backups in S3.
+
+
+
+Non-Functional Requirements
+
+High availability (min 2 replicas per service)
+
+Auto-recovery of failed pods
+
+Secure communication between services (private VPC)
+
+
+
+---
+4. DevSecOps Pipeline with Automated Security Scanning
+
+Project Title
+
+> Secure CI/CD Pipeline with Vulnerability Scanning and Compliance Checks
+
+
+
+Client Requirement (SRS Summary)
+
+The client wants to ensure every code deployment undergoes automated security and compliance checks before reaching production.
+The system must integrate with existing CI/CD pipelines and AWS infrastructure.
+
+Functional Requirements
+
+1. Jenkins pipeline must run:
+
+SonarQube for code quality analysis
+
+Trivy for Docker image vulnerability scanning
+
+Unit and integration tests before deployment
+
+
+
+2. Store all build artifacts in S3.
+
+
+3. Securely push approved Docker images to ECR.
+
+
+4. Deploy applications to EKS cluster via Terraform and Ansible.
+
+
+5. Generate compliance reports automatically.
+
+
+6. Log all security incidents to Splunk.
+
+
+7. Manage issue tracking via Jira.
+
+
+
+Non-Functional Requirements
+
+Compliance with OWASP and CIS benchmarks
+
+Encrypted communication for all data transfers
+
+Minimal pipeline latency increase (<5%)
+
+--
+
+5. SRE-Focused Monitoring and Auto-Healing System
+
+Project Title
+
+> Cloud Infrastructure Monitoring and Self-Healing Automation
+
+
+
+Client Requirement (SRS Summary)
+
+The client needs an automated monitoring system that can detect failures in AWS resources and trigger self-healing actions to maintain uptime.
+
+Functional Requirements
+
+1. Use AWS CloudWatch to monitor EC2, EKS, and application metrics.
+
+
+2. Create CloudWatch alarms for CPU, memory, and error rates.
+
+
+3. Trigger AWS Lambda functions (Python-based) to restart failed instances or pods.
+
+
+4. Send notifications to Slack / Email via SNS.
+
+
+5. Aggregate logs in Splunk for analysis.
+
+
+6. Maintain all automation scripts in GitHub.
+
+
+7. Track incidents in Jira under SRE board.
+
+
+
+Non-Functional Requirements
+
+Uptime target: 99.9%
+
+Mean time to recovery (MTTR): < 2 minutes
+
+Scalable monitoring with minimal cost overhead
+
+
+
+---
